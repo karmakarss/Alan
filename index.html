@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #countdown {
+            font-size: 5rem;
+            color: white;
+            position: absolute;
+        }
+
+        .image-container {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(15px);
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 60%;
+            width: auto;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .message {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+
+        /* Adjusting third message position */
+        #message-3 {
+            top: 75%;
+        }
+
+        /* Text styles for each image */
+        #message-1 {
+            color: white;
+        }
+
+        #message-2 {
+            color: white;
+            text-shadow: -2px -2px 0 #ff1493, 2px -2px 0 #ff1493, -2px 2px 0 #ff1493, 2px 2px 0 #ff1493;
+        }
+
+        #message-3 {
+            color: black;
+            text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+        }
+
+        #message-4 {
+            color: black;
+        }
+
+        #message-5 {
+            color: black;
+        }
+
+        #message-6 {
+            color: white;
+            text-shadow: -1px -1px 0 deepPink, 1px -1px 0 deepPink, -1px 1px 0 deepPink, 1px 1px 0 deepPink;
+        }
+
+        #message-7 {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">5</div>
+
+    <!-- First Image Container -->
+    <div class="image-container" id="image-container-1">
+        <img class="background-image" id="background-image-1" src="file:/E:/V S Code/HTML/ram/Alan2.jpg" alt="Background Image 1">
+        <img class="center-image" id="center-image-1" src="file:/E:/V S Code/HTML/ram/Alan2.jpg" alt="Centered Image 1">
+        <div class="message" id="message-1">Happy Birthday!! 🎉</div>
+    </div>
+
+    <!-- Second Image Container -->
+    <div class="image-container" id="image-container-2">
+        <img class="background-image" id="background-image-2" src="file:/E:/V S Code/HTML/ram/Alan5.jpg" alt="Background Image 2">
+        <img class="center-image" id="center-image-2" src="file:/E:/V S Code/HTML/ram/Alan5.jpg" alt="Centered Image 2">
+        <div class="message" id="message-2">
+            Hi!! Ohisashiburi des.....When u open this hope u are fine and doing well (u must do😃).<br>
+            Well it's your birthday and so a very HAPPY BIRTHDAY!! to u with lots of wishes for your wellbeing.<br><br>
+            Don't know what to say. Everyone's life's changed and everybody's on their own now, thus this much I can say....
+        </div>
+    </div>
+
+    <!-- Third Image Container -->
+    <div class="image-container" id="image-container-3">
+        <img class="background-image" id="background-image-3" src="file:/E:/V S Code/HTML/ram/Alan6.jpg" alt="Background Image 3">
+        <img class="center-image" id="center-image-3" src="file:/E:/V S Code/HTML/ram/Alan6.jpg" alt="Centered Image 3">
+        <div class="message" id="message-3">Life's full of highs and lows....sometimes the best of times and sometimes the worst.....yet in those very moments we live our life and strive to keep moving ahead. Whatever situation u are in right now, however good or bad</div>
+    </div>
+
+    <!-- Fourth Image Container -->
+    <div class="image-container" id="image-container-4">
+        <img class="background-image" id="background-image-4" src="file:/E:/V S Code/HTML/ram/Alan3.jpg" alt="Background Image 4">
+        <img class="center-image" id="center-image-4" src="file:/E:/V S Code/HTML/ram/Alan3.jpg" alt="Centered Image 4">
+        <div class="message" id="message-4">Keep praying.....have faith and without fear take a leap ahead. Take care of those precious to u and be available to them. Work hard to make ur life better.....and most importantly believe in yourself</div>
+    </div>
+
+    <!-- Fifth Image Container -->
+    <div class="image-container" id="image-container-5">
+        <img class="background-image" id="background-image-5" src="file:/E:/V S Code/HTML/ram/Alan4.jpg" alt="Background Image 5">
+        <img class="center-image" id="center-image-5" src="file:/E:/V S Code/HTML/ram/Alan4.jpg" alt="Centered Image 5">
+        <div class="message" id="message-5">Cuz belief in oneself is a sure way to success....(which I pray u become)</div>
+    </div>
+
+    <!-- Sixth Image Container -->
+    <div class="image-container" id="image-container-6">
+        <img class="background-image" id="background-image-6" src="file:/E:/V S Code/HTML/ram/Alan1.jpg" alt="Background Image 6">
+        <img class="center-image" id="center-image-6" src="file:/E:/V S Code/HTML/ram/Alan1.jpg" alt="Centered Image 6">
+        <div class="message" id="message-6">As usual....keep smiling!! keep growing!!😊......Let ur smile bring joy to other people's life.</div>
+    </div>
+
+    <!-- Seventh Image Container -->
+    <div class="image-container" id="image-container-7">
+        <img class="background-image" id="background-image-7" src="file:/E:/V S Code/HTML/ram/Alan7.jpg" alt="Background Image 7">
+        <img class="center-image" id="center-image-7" src="file:/E:/V S Code/HTML/ram/Alan7.jpg" alt="Centered Image 7">
+        <div class="message" id="message-7">Bye.... Take care!!</div>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        const imageContainers = [
+            document.getElementById('image-container-1'),
+            document.getElementById('image-container-2'),
+            document.getElementById('image-container-3'),
+            document.getElementById('image-container-4'),
+            document.getElementById('image-container-5'),
+            document.getElementById('image-container-6'),
+            document.getElementById('image-container-7')
+        ];
+        const messages = [
+            document.getElementById('message-1'),
+            document.getElementById('message-2'),
+            document.getElementById('message-3'),
+            document.getElementById('message-4'),
+            document.getElementById('message-5'),
+            document.getElementById('message-6'),
+            document.getElementById('message-7')
+        ];
+
+        let countdown = 5;
+
+        function startCountdown() {
+            countdownElement.textContent = countdown;
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    countdownElement.style.display = 'none';
+                    showImage(0);
+                }
+            }, 1000);
+        }
+
+        function showImage(index) {
+            if (index >= imageContainers.length) {
+                return;
+            }
+
+            const container = imageContainers[index];
+            const message = messages[index];
+            container.style.display = 'block';
+
+            const backgroundImage = container.querySelector('.background-image');
+            const centerImage = container.querySelector('.center-image');
+
+            setTimeout(() => {
+                backgroundImage.style.opacity = 1;
+                centerImage.style.opacity = 1;
+
+                setTimeout(() => {
+                    message.classList.add('show');
+
+                    setTimeout(() => {
+                        backgroundImage.style.opacity = 0;
+                        centerImage.style.opacity = 0;
+                        message.classList.remove('show');
+
+                        setTimeout(() => {
+                            container.style.display = 'none';
+                            showImage(index + 1);
+                        }, 2000);
+                    }, 12000); // Display for 12 seconds
+                }, 1500);
+            }, 100);
+        }
+
+        startCountdown();
+    </script>
+</body>
+</html>
