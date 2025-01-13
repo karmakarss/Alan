@@ -113,15 +113,15 @@
 
     <!-- First Image Container -->
     <div class="image-container" id="image-container-1">
-        <img class="background-image" id="background-image-1" src="Alan2.jpg" alt="Background Image 1">
-        <img class="center-image" id="center-image-1" src="Alan2.jpg" alt="Centered Image 1">
+        <img class="background-image" id="background-image-1" src="file:/E:/V S Code/HTML/ram/Alan2.jpg" alt="Background Image 1">
+        <img class="center-image" id="center-image-1" src="file:/E:/V S Code/HTML/ram/Alan2.jpg" alt="Centered Image 1">
         <div class="message" id="message-1">Happy Birthday!! 🎉</div>
     </div>
 
     <!-- Second Image Container -->
     <div class="image-container" id="image-container-2">
-        <img class="background-image" id="background-image-2" src="Alan5.jpg" alt="Background Image 2">
-        <img class="center-image" id="center-image-2" src="Alan5.jpg" alt="Centered Image 2">
+        <img class="background-image" id="background-image-2" src="file:/E:/V S Code/HTML/ram/Alan5.jpg" alt="Background Image 2">
+        <img class="center-image" id="center-image-2" src="file:/E:/V S Code/HTML/ram/Alan5.jpg" alt="Centered Image 2">
         <div class="message" id="message-2">
             Hi!! Ohisashiburi des.....When u open this hope u are fine and doing well (u must do😃).<br>
             Well it's your birthday and so a very HAPPY BIRTHDAY!! to u with lots of wishes for your wellbeing.<br><br>
@@ -131,38 +131,40 @@
 
     <!-- Third Image Container -->
     <div class="image-container" id="image-container-3">
-        <img class="background-image" id="background-image-3" src="Alan6.jpg" alt="Background Image 3">
-        <img class="center-image" id="center-image-3" src="Alan6.jpg" alt="Centered Image 3">
+        <img class="background-image" id="background-image-3" src="file:/E:/V S Code/HTML/ram/Alan6.jpg" alt="Background Image 3">
+        <img class="center-image" id="center-image-3" src="file:/E:/V S Code/HTML/ram/Alan6.jpg" alt="Centered Image 3">
         <div class="message" id="message-3">Life's full of highs and lows....sometimes the best of times and sometimes the worst.....yet in those very moments we live our life and strive to keep moving ahead. Whatever situation u are in right now, however good or bad</div>
     </div>
 
     <!-- Fourth Image Container -->
     <div class="image-container" id="image-container-4">
-        <img class="background-image" id="background-image-4" src="Alan3.jpg" alt="Background Image 4">
-        <img class="center-image" id="center-image-4" src="Alan3.jpg" alt="Centered Image 4">
+        <img class="background-image" id="background-image-4" src="file:/E:/V S Code/HTML/ram/Alan3.jpg" alt="Background Image 4">
+        <img class="center-image" id="center-image-4" src="file:/E:/V S Code/HTML/ram/Alan3.jpg" alt="Centered Image 4">
         <div class="message" id="message-4">Keep praying.....have faith and without fear take a leap ahead. Take care of those precious to u and be available to them. Work hard to make ur life better.....and most importantly believe in yourself</div>
     </div>
 
     <!-- Fifth Image Container -->
     <div class="image-container" id="image-container-5">
-        <img class="background-image" id="background-image-5" src="Alan4.jpg" alt="Background Image 5">
-        <img class="center-image" id="center-image-5" src="Alan4.jpg" alt="Centered Image 5">
+        <img class="background-image" id="background-image-5" src="file:/E:/V S Code/HTML/ram/Alan4.jpg" alt="Background Image 5">
+        <img class="center-image" id="center-image-5" src="file:/E:/V S Code/HTML/ram/Alan4.jpg" alt="Centered Image 5">
         <div class="message" id="message-5">Cuz belief in oneself is a sure way to success....(which I pray u become)</div>
     </div>
 
     <!-- Sixth Image Container -->
     <div class="image-container" id="image-container-6">
-        <img class="background-image" id="background-image-6" src="Alan1.jpg" alt="Background Image 6">
-        <img class="center-image" id="center-image-6" src="Alan1.jpg" alt="Centered Image 6">
+        <img class="background-image" id="background-image-6" src="file:/E:/V S Code/HTML/ram/Alan1.jpg" alt="Background Image 6">
+        <img class="center-image" id="center-image-6" src="file:/E:/V S Code/HTML/ram/Alan1.jpg" alt="Centered Image 6">
         <div class="message" id="message-6">As usual....keep smiling!! keep growing!!😊......Let ur smile bring joy to other people's life.</div>
     </div>
 
     <!-- Seventh Image Container -->
     <div class="image-container" id="image-container-7">
-        <img class="background-image" id="background-image-7" src="Alan7.jpg" alt="Background Image 7">
-        <img class="center-image" id="center-image-7" src="Alan7.jpg" alt="Centered Image 7">
+        <img class="background-image" id="background-image-7" src="file:/E:/V S Code/HTML/ram/Alan7.jpg" alt="Background Image 7">
+        <img class="center-image" id="center-image-7" src="file:/E:/V S Code/HTML/ram/Alan7.jpg" alt="Centered Image 7">
         <div class="message" id="message-7">Bye.... Take care!!</div>
     </div>
+
+    <audio id="birthday-audio" src="kv.mp3" preload="auto"></audio>
 
     <script>
         const countdownElement = document.getElementById('countdown');
@@ -185,6 +187,7 @@
             document.getElementById('message-7')
         ];
 
+        const birthdayAudio = document.getElementById('birthday-audio');
         let countdown = 5;
 
         function startCountdown() {
@@ -216,6 +219,10 @@
             setTimeout(() => {
                 backgroundImage.style.opacity = 1;
                 centerImage.style.opacity = 1;
+
+                if (index === 0) {
+                    birthdayAudio.play(); // Play audio after the first image
+                }
 
                 setTimeout(() => {
                     message.classList.add('show');
