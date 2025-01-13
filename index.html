@@ -164,6 +164,9 @@
         <div class="message" id="message-7">Bye.... Take care!!</div>
     </div>
 
+    <!-- Audio Element -->
+    <audio id="audio" src="kv.mp3"></audio>
+
     <script>
         const countdownElement = document.getElementById('countdown');
         const imageContainers = [
@@ -185,6 +188,7 @@
             document.getElementById('message-7')
         ];
 
+        const audio = document.getElementById('audio');
         let countdown = 5;
 
         function startCountdown() {
@@ -216,6 +220,10 @@
             setTimeout(() => {
                 backgroundImage.style.opacity = 1;
                 centerImage.style.opacity = 1;
+
+                if (index === 1) {
+                    audio.play(); // Start audio when the second image is shown
+                }
 
                 setTimeout(() => {
                     message.classList.add('show');
