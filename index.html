@@ -18,7 +18,7 @@
         }
 
         #countdown {
-            font-size: 5rem;
+            font-size: 5vw; /* Scales dynamically with viewport width */
             color: white;
             position: absolute;
         }
@@ -39,7 +39,7 @@
             object-fit: cover;
             filter: blur(15px);
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 8.5s ease-in-out;
         }
 
         .center-image {
@@ -52,7 +52,7 @@
             width: auto;
             height: auto;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 8.5s ease-in-out;
         }
 
         .message {
@@ -60,14 +60,10 @@
             top: 70%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2rem;
+            font-size: 2vw; /* Dynamically scales */
             text-align: center;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-
-        .message.show {
-            opacity: 1;
+            transition: opacity 8.5s ease-in-out;
         }
 
         /* Adjusting third message position */
@@ -105,6 +101,27 @@
 
         #message-7 {
             color: black;
+        }
+
+        /* For screens smaller than 768px */
+        @media (max-width: 768px) {
+            #countdown {
+                font-size: 4rem;
+            }
+
+            .message {
+                font-size: 1.5rem;
+                padding: 0 10px;
+            }
+
+            .center-image {
+                max-width: 90%;
+                max-height: 50%;
+            }
+
+            .background-image {
+                filter: blur(10px);
+            }
         }
     </style>
 </head>
@@ -186,55 +203,46 @@
         ];
 
         let countdown = 5;
-
-        function startCountdown() {
+        const countdownInterval = setInterval(() => {
+            countdown--;
             countdownElement.textContent = countdown;
-            const interval = setInterval(() => {
-                countdown--;
-                countdownElement.textContent = countdown;
 
-                if (countdown === 0) {
-                    clearInterval(interval);
-                    countdownElement.style.display = 'none';
-                    showImage(0);
-                }
-            }, 1000);
-        }
-
-        function showImage(index) {
-            if (index >= imageContainers.length) {
-                return;
+            if (countdown === 0) {
+                clearInterval(countdownInterval);
+                countdownElement.style.display = 'none';
+                displayImages();
             }
+        }, 1000);
 
-            const container = imageContainers[index];
-            const message = messages[index];
-            container.style.display = 'block';
+        function displayImages() {
+            let currentIndex = 0;
 
-            const backgroundImage = container.querySelector('.background-image');
-            const centerImage = container.querySelector('.center-image');
+            function showNextImage() {
+                if (currentIndex > 0) {
+                    imageContainers[currentIndex - 1].style.display = 'none';
+                }
 
-            setTimeout(() => {
-                backgroundImage.style.opacity = 1;
-                centerImage.style.opacity = 1;
+                if (currentIndex < imageContainers.length) {
+                    const container = imageContainers[currentIndex];
+                    const backgroundImage = container.querySelector('.background-image');
+                    const centerImage = container.querySelector('.center-image');
+                    const message = messages[currentIndex];
 
-                setTimeout(() => {
-                    message.classList.add('show');
+                    container.style.display = 'block';
 
                     setTimeout(() => {
-                        backgroundImage.style.opacity = 0;
-                        centerImage.style.opacity = 0;
-                        message.classList.remove('show');
+                        backgroundImage.style.opacity = 1;
+                        centerImage.style.opacity = 1;
+                        message.style.opacity = 1;
+                    }, 100);
 
-                        setTimeout(() => {
-                            container.style.display = 'none';
-                            showImage(index + 1);
-                        }, 2000);
-                    }, 12000); // Display for 12 seconds
-                }, 1500);
-            }, 100);
+                    currentIndex++;
+                    setTimeout(showNextImage, 5000);
+                }
+            }
+
+            showNextImage();
         }
-
-        startCountdown();
     </script>
 </body>
 </html>
