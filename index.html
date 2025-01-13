@@ -39,7 +39,7 @@
             object-fit: cover;
             filter: blur(15px);
             opacity: 0;
-            transition: opacity 8.5s ease-in-out;
+            transition: opacity 13.5s ease-in-out; /* Increased for 1st image */
         }
 
         .center-image {
@@ -52,7 +52,7 @@
             width: auto;
             height: auto;
             opacity: 0;
-            transition: opacity 8.5s ease-in-out;
+            transition: opacity 13.5s ease-in-out; /* Increased for 1st image */
         }
 
         .message {
@@ -63,7 +63,7 @@
             font-size: 2vw; /* Dynamically scales */
             text-align: center;
             opacity: 0;
-            transition: opacity 8.5s ease-in-out;
+            transition: opacity 13.5s ease-in-out; /* Increased for 1st image */
         }
 
         /* Adjusting third message position */
@@ -123,6 +123,14 @@
                 filter: blur(10px);
             }
         }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .fade-in.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -130,16 +138,16 @@
 
     <!-- First Image Container -->
     <div class="image-container" id="image-container-1">
-        <img class="background-image" id="background-image-1" src="Alan2.jpg" alt="Background Image 1">
-        <img class="center-image" id="center-image-1" src="Alan2.jpg" alt="Centered Image 1">
-        <div class="message" id="message-1">Happy Birthday!! 🎉</div>
+        <img class="background-image fade-in" id="background-image-1" src="Alan2.jpg" alt="Background Image 1">
+        <img class="center-image fade-in" id="center-image-1" src="Alan2.jpg" alt="Centered Image 1">
+        <div class="message fade-in" id="message-1">Happy Birthday!! 🎉</div>
     </div>
 
     <!-- Second Image Container -->
     <div class="image-container" id="image-container-2">
-        <img class="background-image" id="background-image-2" src="Alan5.jpg" alt="Background Image 2">
-        <img class="center-image" id="center-image-2" src="Alan5.jpg" alt="Centered Image 2">
-        <div class="message" id="message-2">
+        <img class="background-image fade-in" id="background-image-2" src="Alan5.jpg" alt="Background Image 2">
+        <img class="center-image fade-in" id="center-image-2" src="Alan5.jpg" alt="Centered Image 2">
+        <div class="message fade-in" id="message-2">
             Hi!! Ohisashiburi des.....When u open this hope u are fine and doing well (u must do😃).<br>
             Well it's your birthday and so a very HAPPY BIRTHDAY!! to u with lots of wishes for your wellbeing.<br><br>
             Don't know what to say. Everyone's life's changed and everybody's on their own now, thus this much I can say....
@@ -148,37 +156,37 @@
 
     <!-- Third Image Container -->
     <div class="image-container" id="image-container-3">
-        <img class="background-image" id="background-image-3" src="Alan6.jpg" alt="Background Image 3">
-        <img class="center-image" id="center-image-3" src="Alan6.jpg" alt="Centered Image 3">
-        <div class="message" id="message-3">Life's full of highs and lows....sometimes the best of times and sometimes the worst.....yet in those very moments we live our life and strive to keep moving ahead. Whatever situation u are in right now, however good or bad</div>
+        <img class="background-image fade-in" id="background-image-3" src="Alan6.jpg" alt="Background Image 3">
+        <img class="center-image fade-in" id="center-image-3" src="Alan6.jpg" alt="Centered Image 3">
+        <div class="message fade-in" id="message-3">Life's full of highs and lows....sometimes the best of times and sometimes the worst.....yet in those very moments we live our life and strive to keep moving ahead. Whatever situation u are in right now, however good or bad</div>
     </div>
 
     <!-- Fourth Image Container -->
     <div class="image-container" id="image-container-4">
-        <img class="background-image" id="background-image-4" src="Alan3.jpg" alt="Background Image 4">
-        <img class="center-image" id="center-image-4" src="Alan3.jpg" alt="Centered Image 4">
-        <div class="message" id="message-4">Keep praying.....have faith and without fear take a leap ahead. Take care of those precious to u and be available to them. Work hard to make ur life better.....and most importantly believe in yourself</div>
+        <img class="background-image fade-in" id="background-image-4" src="Alan3.jpg" alt="Background Image 4">
+        <img class="center-image fade-in" id="center-image-4" src="Alan3.jpg" alt="Centered Image 4">
+        <div class="message fade-in" id="message-4">Keep praying.....have faith and without fear take a leap ahead. Take care of those precious to u and be available to them. Work hard to make ur life better.....and most importantly believe in yourself</div>
     </div>
 
     <!-- Fifth Image Container -->
     <div class="image-container" id="image-container-5">
-        <img class="background-image" id="background-image-5" src="Alan4.jpg" alt="Background Image 5">
-        <img class="center-image" id="center-image-5" src="Alan4.jpg" alt="Centered Image 5">
-        <div class="message" id="message-5">Cuz belief in oneself is a sure way to success....(which I pray u become)</div>
+        <img class="background-image fade-in" id="background-image-5" src="Alan4.jpg" alt="Background Image 5">
+        <img class="center-image fade-in" id="center-image-5" src="Alan4.jpg" alt="Centered Image 5">
+        <div class="message fade-in" id="message-5">Cuz belief in oneself is a sure way to success....(which I pray u become)</div>
     </div>
 
     <!-- Sixth Image Container -->
     <div class="image-container" id="image-container-6">
-        <img class="background-image" id="background-image-6" src="Alan1.jpg" alt="Background Image 6">
-        <img class="center-image" id="center-image-6" src="Alan1.jpg" alt="Centered Image 6">
-        <div class="message" id="message-6">As usual....keep smiling!! keep growing!!😊......Let ur smile bring joy to other people's life.</div>
+        <img class="background-image fade-in" id="background-image-6" src="Alan1.jpg" alt="Background Image 6">
+        <img class="center-image fade-in" id="center-image-6" src="Alan1.jpg" alt="Centered Image 6">
+        <div class="message fade-in" id="message-6">As usual....keep smiling!! keep growing!!😊......Let ur smile bring joy to other people's life.</div>
     </div>
 
     <!-- Seventh Image Container -->
     <div class="image-container" id="image-container-7">
-        <img class="background-image" id="background-image-7" src="Alan7.jpg" alt="Background Image 7">
-        <img class="center-image" id="center-image-7" src="Alan7.jpg" alt="Centered Image 7">
-        <div class="message" id="message-7">Bye.... Take care!!</div>
+        <img class="background-image fade-in" id="background-image-7" src="Alan7.jpg" alt="Background Image 7">
+        <img class="center-image fade-in" id="center-image-7" src="Alan7.jpg" alt="Centered Image 7">
+        <div class="message fade-in" id="message-7">Bye.... Take care!!</div>
     </div>
 
     <script>
@@ -231,13 +239,13 @@
                     container.style.display = 'block';
 
                     setTimeout(() => {
-                        backgroundImage.style.opacity = 1;
-                        centerImage.style.opacity = 1;
-                        message.style.opacity = 1;
+                        backgroundImage.classList.add('visible');
+                        centerImage.classList.add('visible');
+                        message.classList.add('visible');
                     }, 100);
 
                     currentIndex++;
-                    setTimeout(showNextImage, 5000);
+                    setTimeout(showNextImage, currentIndex === 1 ? 13500 : 16500); // Adjust for transition times
                 }
             }
 
