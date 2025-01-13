@@ -18,7 +18,7 @@
         }
 
         #countdown {
-            font-size: 5vw; /* Scales dynamically with viewport width */
+            font-size: 5rem;
             color: white;
             position: absolute;
         }
@@ -60,10 +60,14 @@
             top: 70%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 2vw; /* Dynamically scales */
+            font-size: 2rem;
             text-align: center;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+        }
+
+        .message.show {
+            opacity: 1;
         }
 
         /* Adjusting third message position */
@@ -101,27 +105,6 @@
 
         #message-7 {
             color: black;
-        }
-
-        /* For screens smaller than 768px */
-        @media (max-width: 768px) {
-            #countdown {
-                font-size: 4rem;
-            }
-
-            .message {
-                font-size: 1.5rem;
-                padding: 0 10px;
-            }
-
-            .center-image {
-                max-width: 90%;
-                max-height: 50%;
-            }
-
-            .background-image {
-                filter: blur(10px);
-            }
         }
     </style>
 </head>
@@ -203,46 +186,55 @@
         ];
 
         let countdown = 5;
-        const countdownInterval = setInterval(() => {
-            countdown--;
+
+        function startCountdown() {
             countdownElement.textContent = countdown;
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
 
-            if (countdown === 0) {
-                clearInterval(countdownInterval);
-                countdownElement.style.display = 'none';
-                displayImages();
-            }
-        }, 1000);
-
-        function displayImages() {
-            let currentIndex = 0;
-
-            function showNextImage() {
-                if (currentIndex > 0) {
-                    imageContainers[currentIndex - 1].style.display = 'none';
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    countdownElement.style.display = 'none';
+                    showImage(0);
                 }
+            }, 1000);
+        }
 
-                if (currentIndex < imageContainers.length) {
-                    const container = imageContainers[currentIndex];
-                    const backgroundImage = container.querySelector('.background-image');
-                    const centerImage = container.querySelector('.center-image');
-                    const message = messages[currentIndex];
+        function showImage(index) {
+            if (index >= imageContainers.length) {
+                return;
+            }
 
-                    container.style.display = 'block';
+            const container = imageContainers[index];
+            const message = messages[index];
+            container.style.display = 'block';
+
+            const backgroundImage = container.querySelector('.background-image');
+            const centerImage = container.querySelector('.center-image');
+
+            setTimeout(() => {
+                backgroundImage.style.opacity = 1;
+                centerImage.style.opacity = 1;
+
+                setTimeout(() => {
+                    message.classList.add('show');
 
                     setTimeout(() => {
-                        backgroundImage.style.opacity = 1;
-                        centerImage.style.opacity = 1;
-                        message.style.opacity = 1;
-                    }, 100);
+                        backgroundImage.style.opacity = 0;
+                        centerImage.style.opacity = 0;
+                        message.classList.remove('show');
 
-                    currentIndex++;
-                    setTimeout(showNextImage, 5000);
-                }
-            }
-
-            showNextImage();
+                        setTimeout(() => {
+                            container.style.display = 'none';
+                            showImage(index + 1);
+                        }, 2000);
+                    }, 12000); // Display for 12 seconds
+                }, 1500);
+            }, 100);
         }
+
+        startCountdown();
     </script>
 </body>
 </html>
